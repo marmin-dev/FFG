@@ -18,6 +18,9 @@ const ListItemP = styled.p`
 const ListLink = styled(Link)`
   text-decoration: none;
   color: black;
+  &:hover {
+    color: slateblue;
+  }
 `;
 
 const ListItem = (props) => {
@@ -25,7 +28,9 @@ const ListItem = (props) => {
     <ItemDiv>
       <ListItemDiv>
         <ListItemH3>
-          <ListLink>{props.data.title}</ListLink>
+          <ListLink to={`/detail/${props.data.id}`}>
+            {props.data.title}
+          </ListLink>
         </ListItemH3>
       </ListItemDiv>
       <ListItemDiv>

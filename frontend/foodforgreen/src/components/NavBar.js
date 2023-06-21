@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const NavBarDiv = styled.div`
@@ -12,14 +13,29 @@ const NavBarDiv = styled.div`
 const NavDiv = styled.div`
   margin: 0 10px;
 `;
+const NaviLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  &:hover {
+    color: slateblue;
+  }
+`;
 
 const NavBar = () => {
   return (
     <NavBarDiv>
-      <NavDiv>Home</NavDiv>
-      <NavDiv>About</NavDiv>
-      <NavDiv>Contact</NavDiv>
-      <NavDiv>Menu</NavDiv>
+      <NavDiv>
+        <NaviLink to="/">Home</NaviLink>
+      </NavDiv>
+      <NavDiv>
+        <NaviLink to="/about">AboutFFG</NaviLink>
+      </NavDiv>
+      <NavDiv>
+        <NaviLink to="/">AddPost</NaviLink>
+      </NavDiv>
+      <NavDiv>
+        <NaviLink to="/">Login</NaviLink>
+      </NavDiv>
     </NavBarDiv>
   );
 };
