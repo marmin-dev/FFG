@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Responsive from "../components/Responsive";
 import PostMap from "../components/PostMap";
 import ListView from "../components/ListView";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const data = [
@@ -16,7 +17,7 @@ const Home = () => {
     },
     {
       id: 7,
-      title: "fake title5",
+      title: "fake title4",
       lat: 33.450401,
       lng: 122.573667,
       author: "fake author2",
@@ -24,7 +25,7 @@ const Home = () => {
     },
     {
       id: 6,
-      title: "fake title5",
+      title: "fake title3",
       lat: 33.450401,
       lng: 124.573667,
       author: "fake author3",
@@ -32,7 +33,7 @@ const Home = () => {
     },
     {
       id: 5,
-      title: "fake title5",
+      title: "fake title2",
       lat: 33.450401,
       lng: 126.573667,
       author: "fake author1",
@@ -44,7 +45,8 @@ const Home = () => {
       <Header />
       <NavBar />
       <PostMap pings={data} />
-      <ListView />
+      <ListView data={data} />
+      <Footer />
     </Responsive>
   );
 };

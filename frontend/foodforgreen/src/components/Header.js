@@ -15,13 +15,14 @@ const HeaderLink = styled(Link)`
 
 const HeaderH1 = styled.h1`
   font-size: 40px;
+  font-family: "Marker Felt", fantasy;
 `;
 
 const Header = () => {
   return (
     <HeaderDiv>
       <HeaderH1>
-        <HeaderLink>FoodForGreen</HeaderLink>
+        <HeaderLink to="/">FoodForGreen</HeaderLink>
       </HeaderH1>
     </HeaderDiv>
   );

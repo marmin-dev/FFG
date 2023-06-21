@@ -6,17 +6,12 @@ const ListViewDiv = styled.div`
   margin: 0px;
 `;
 
-const ListView = () => {
+const ListView = ({ data }) => {
   return (
     <ListViewDiv>
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      {data.map((post) => (
+        <ListItem key={post.id} data={post} />
+      ))}
     </ListViewDiv>
   );
 };

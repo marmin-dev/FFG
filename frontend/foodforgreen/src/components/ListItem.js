@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const ItemDiv = styled.div`
@@ -14,15 +15,21 @@ const ListItemH3 = styled.h3`
 const ListItemP = styled.p`
   margin: 5px;
 `;
+const ListLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
-const ListItem = () => {
+const ListItem = (props) => {
   return (
     <ItemDiv>
       <ListItemDiv>
-        <ListItemH3>게시글 제목</ListItemH3>
+        <ListItemH3>
+          <ListLink>{props.data.title}</ListLink>
+        </ListItemH3>
       </ListItemDiv>
       <ListItemDiv>
-        <ListItemP>작성자</ListItemP>
+        <ListItemP>{props.data.author}</ListItemP>
       </ListItemDiv>
     </ItemDiv>
   );
