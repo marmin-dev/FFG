@@ -1,6 +1,7 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { styled } from "styled-components";
 import { DeleteButton, UpdateButton } from "./Buttons";
+import { Link } from "react-router-dom";
 
 const DetailViewDiv = styled.div`
   /* border-bottom: 1px solid black; */
@@ -28,13 +29,20 @@ const ButtonDiv = styled.div`
   border-bottom: 1px solid grey;
 `;
 
+const UpdateLink = styled(Link)`
+  font-style: none;
+  color: black;
+`;
+
 const DetailView = (props) => {
   return (
     <DetailViewDiv>
       <DetailViewH1>{props.data.title}</DetailViewH1>
       <DetailViewH3>{props.data.author}</DetailViewH3>
       <ButtonDiv>
-        <UpdateButton>수정하기</UpdateButton>
+        <UpdateButton>
+          <UpdateLink to={`/update/${props.data.id}`}>수정하기</UpdateLink>
+        </UpdateButton>
         <DeleteButton>삭제하기</DeleteButton>
       </ButtonDiv>
       <DetailViewText>{props.data.content}</DetailViewText>

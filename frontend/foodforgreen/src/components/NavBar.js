@@ -31,7 +31,7 @@ const NavBar = () => {
         <NaviLink to="/about">AboutFFG</NaviLink>
       </NavDiv>
       <NavDiv>
-        <NaviLink to="/">AddPost</NaviLink>
+        <NaviLink to="/post">AddPost</NaviLink>
       </NavDiv>
       <NavDiv>
         <NaviLink to="/">Login</NaviLink>
