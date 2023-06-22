@@ -9,6 +9,7 @@ import {
   TextDiv,
 } from "./Forms";
 import { getLocation } from "../apiHandler/Geolocation";
+import { postApi } from "../apiHandler/PostApi";
 
 const PostForm = () => {
   // 데이터 등록 폼
@@ -20,10 +21,10 @@ const PostForm = () => {
     lng: "127.83653086808023",
   });
   // 서브밋 시 일어날 이벤트
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert(formData);
+    await postApi(formData);
+    window.location.href = "/";
   };
   // 요소 변경시 일어날 핸들러
   const handleChange = (e) => {
@@ -52,6 +53,7 @@ const PostForm = () => {
         name="title"
         value={formData.title}
         onChange={handleChange}
+        required
       />
       <TextDiv>작성자</TextDiv>
       <Pinput
@@ -59,9 +61,15 @@ const PostForm = () => {
         name="author"
         value={formData.author}
         onChange={handleChange}
+        required
       />
       <TextDiv>내용</TextDiv>
-      <PText name="content" onChange={handleChange} value={formData.content} />
+      <PText
+        name="content"
+        onChange={handleChange}
+        value={formData.content}
+        required
+      />
       <TextDiv>위치표시</TextDiv>
       <Map // 지도를 표시할 Container
         center={{

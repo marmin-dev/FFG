@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import {
   PForm,
@@ -10,23 +10,38 @@ import {
 } from "./Forms";
 import { getLocation } from "../apiHandler/Geolocation";
 import { useParams } from "react-router-dom";
+import { updateApi } from "../apiHandler/UpdateApiHandler";
 
 const UpdateForm = (props) => {
   const postId = useParams("id");
-
-  // 데이터 등록 폼
+  const [level, setLevel] = useState(14);
   const [formData, setFormData] = useState({
-    title: props.data.title,
-    author: props.data.author,
-    content: props.data.content,
-    lat: props.data.lat,
-    lng: props.data.lng,
+    title: "",
+    author: "",
+    content: "",
+    lat: "36.84254655866462",
+    lng: "127.83653086808023",
   });
+  useEffect(() => {
+    if (Object.keys(props.data).length !== 0) {
+      setFormData({
+        title: props.data.title,
+        author: props.data.author,
+        content: props.data.content,
+        lat: props.data.lat,
+        lng: props.data.lng,
+      });
+      setLevel(5);
+    }
+  }, [props.data]);
+
   // 서브밋 시 일어날 이벤트
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert(formData);
+    const data = { id: postId["id"], data: formData };
+    console.log(data);
+    await updateApi(data);
+    window.location.href = "/";
   };
   // 요소 변경시 일어날 핸들러
   const handleChange = (e) => {
@@ -76,7 +91,7 @@ const UpdateForm = (props) => {
           width: "50%",
           height: "450px",
         }}
-        level={14} // 지도의 확대 레벨
+        level={level} // 지도의 확대 레벨
         onClick={(_t, mouseEvent) =>
           setFormData({
             ...formData,
