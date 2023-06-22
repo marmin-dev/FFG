@@ -1,52 +1,22 @@
-import { styled } from "styled-components";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Responsive from "../components/Responsive";
-import { SubmitButton } from "../components/Forms";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  LoginDiv,
+  LoginDivFull,
+  LoginForm,
+  LoginInput,
+  RegisterLink,
+  SubmitBtn,
+} from "./Login";
 
-export const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-export const LoginDivFull = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-export const LoginDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  border: 1px solid black;
-`;
-
-export const LoginInput = styled.input`
-  width: 50%;
-`;
-
-export const SubmitBtn = styled(SubmitButton)`
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-right: 20px;
-`;
-
-export const RegisterLink = styled(Link)`
-  margin-bottom: 20px;
-`;
-
-const Login = () => {
+const Register = () => {
   const [login, setLogin] = useState({
     id: "",
     password: "",
+    valid: "",
   });
   const loginSubmit = () => {
     console.log(login);
@@ -75,8 +45,12 @@ const Login = () => {
               name="password"
               onChange={handleChange}
             />
-            <SubmitBtn type="submit">Login</SubmitBtn>
-            <RegisterLink to="/register">회원가입하기</RegisterLink>
+            <p>Check Password</p>
+            <LoginInput type="password" name="valid" onChange={handleChange} />
+            <SubmitBtn type="submit">Register</SubmitBtn>
+            <RegisterLink to="/login">
+              아이디가 있습니까? 로그인하기
+            </RegisterLink>
           </LoginForm>
         </LoginDiv>
       </LoginDivFull>
@@ -84,4 +58,4 @@ const Login = () => {
     </Responsive>
   );
 };
-export default Login;
+export default Register;

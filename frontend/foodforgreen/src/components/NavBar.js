@@ -34,7 +34,7 @@ const NavBar = () => {
         <NaviLink to="/post">AddPost</NaviLink>
       </NavDiv>
       <NavDiv>
-        <NaviLink to="/">Login</NaviLink>
+        <NaviLink to="/login">Login</NaviLink>
       </NavDiv>
     </NavBarDiv>
   );

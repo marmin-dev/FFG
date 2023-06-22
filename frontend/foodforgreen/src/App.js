@@ -5,6 +5,8 @@ import Update from "./pages/Update";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import "./App.css";
+import About from "./pages/About";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/update/:id" element={<Update />} />
         {/* 로그인 페이지 */}
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
