@@ -20,14 +20,16 @@ const PostMap = ({ pings }) => {
       level={14} // 지도의 확대 레벨
       onClick={() => setResetMarker(false)}
     >
-      {pings.map((ping) => (
-        <Ping
-          key={ping.id}
-          ping={ping}
-          resetMarker={resetMarker}
-          setResetMarker={setResetMarker}
-        ></Ping>
-      ))}
+      {pings.length === 0
+        ? null
+        : pings.map((ping) => (
+            <Ping
+              key={ping.id}
+              ping={ping}
+              resetMarker={resetMarker}
+              setResetMarker={setResetMarker}
+            ></Ping>
+          ))}
     </Map>
   );
 };

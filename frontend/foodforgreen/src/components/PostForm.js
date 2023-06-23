@@ -24,6 +24,7 @@ const PostForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await postApi(formData);
+    alert("게시글이 등록되었습니다");
     window.location.href = "/";
   };
   // 요소 변경시 일어날 핸들러
