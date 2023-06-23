@@ -22,6 +22,12 @@ const NaviLink = styled(Link)`
 `;
 
 const NavBar = () => {
+  const username = localStorage.getItem("USERNAME");
+  const logoutHandler = () => {
+    localStorage.clear();
+    alert("로그아웃 되었습니다");
+    window.location.href = "/";
+  };
   return (
     <NavBarDiv>
       <NavDiv>
@@ -34,8 +40,17 @@ const NavBar = () => {
         <NaviLink to="/post">AddPost</NaviLink>
       </NavDiv>
       <NavDiv>
-        <NaviLink to="/login">Login</NaviLink>
+        {username ? (
+          <NaviLink onClick={logoutHandler}>Logout</NaviLink>
+        ) : (
+          <NaviLink to="/login">Login</NaviLink>
+        )}
       </NavDiv>
+      {username ? (
+        <NavDiv>
+          <NaviLink>Welcome {username}</NaviLink>
+        </NavDiv>
+      ) : null}
     </NavBarDiv>
   );
 };

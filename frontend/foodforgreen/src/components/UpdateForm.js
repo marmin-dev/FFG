@@ -77,6 +77,7 @@ const UpdateForm = (props) => {
         name="author"
         value={formData.author}
         onChange={handleChange}
+        readOnly
       />
       <TextDiv>내용</TextDiv>
       <PText name="content" onChange={handleChange} value={formData.content} />

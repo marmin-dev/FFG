@@ -12,10 +12,11 @@ import { getLocation } from "../apiHandler/Geolocation";
 import { postApi } from "../apiHandler/PostApi";
 
 const PostForm = () => {
+  const username = localStorage.getItem("USERNAME");
   // 데이터 등록 폼
   const [formData, setFormData] = useState({
     title: "",
-    author: "",
+    author: username,
     content: "",
     lat: "36.84254655866462",
     lng: "127.83653086808023",
@@ -60,9 +61,10 @@ const PostForm = () => {
       <Pinput
         type="text"
         name="author"
-        value={formData.author}
+        value={username}
         onChange={handleChange}
         required
+        readOnly
       />
       <TextDiv>내용</TextDiv>
       <PText
