@@ -55,11 +55,16 @@ const Login = () => {
     try {
       console.log(login);
       const response = await loginApi(login);
-      const data = JSON.parse(response.body);
-      const [auth_token, username] = [data["token"], data["username"]];
-      localStorage.setItem("AUTH_TOKEN", auth_token);
-      localStorage.setItem("USERNAME", username);
-      window.location.href = "/";
+      const loginStatus = response.statusCode;
+      if (loginStatus === 200) {
+        const data = JSON.parse(response.body);
+        const [auth_token, username] = [data["token"], data["username"]];
+        localStorage.setItem("AUTH_TOKEN", auth_token);
+        localStorage.setItem("USERNAME", username);
+        window.location.href = "/";
+      } else {
+        alert("로그인에 실패하셨습니다");
+      }
     } catch (a) {
       console.log(a);
       alert("로그인에 실패하셨습니다");

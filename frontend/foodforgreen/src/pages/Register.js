@@ -24,14 +24,18 @@ const Register = () => {
   // 서브밋 클릭시
   const loginSubmit = async (e) => {
     e.preventDefault();
+    const data = {
+      id: login.id,
+      password: login.password,
+      username: login.username,
+    };
     if (login["password2"] === login["password"]) {
       try {
-        await registerApi(login);
-      } catch (e) {
-        alert("회원가입에 실패하셨습니다.");
-      } finally {
+        await registerApi(data);
         alert("회원가입에 성공하셨습니다");
         window.location.href = "/";
+      } catch (e) {
+        alert("회원가입에 실패하셨습니다.");
       }
     } else {
       alert("비밀번호가 다릅니다.");

@@ -36,9 +36,11 @@ const NavBar = () => {
       <NavDiv>
         <NaviLink to="/about">AboutFFG</NaviLink>
       </NavDiv>
-      <NavDiv>
-        <NaviLink to="/post">AddPost</NaviLink>
-      </NavDiv>
+      {username ? (
+        <NavDiv>
+          <NaviLink to="/post">AddPost</NaviLink>
+        </NavDiv>
+      ) : null}
       <NavDiv>
         {username ? (
           <NaviLink onClick={logoutHandler}>Logout</NaviLink>

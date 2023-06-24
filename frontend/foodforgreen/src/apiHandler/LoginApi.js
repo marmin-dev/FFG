@@ -9,6 +9,7 @@ export const loginApi = async (data) => {
     console.log("데이터" + response);
     return response.data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
+    throw e;
   }
 };
