@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import "./App.css";
 import About from "./pages/About";
 import Register from "./pages/Register";
+import MyPost from "./pages/MyPost";
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
+        {/* 내가 작성한 게시물 페이지 */}
+        <Route path="/mypost" element={<MyPost />} />
       </Routes>
     </div>
   );

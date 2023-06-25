@@ -51,6 +51,16 @@ const MapDiv = styled.div`
   align-items: center;
 `;
 
+const ConfirmDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ConfirmP = styled.p`
+  padding: 0px;
+  margin: 4px;
+`;
+
 const DetailView = (props) => {
   const postId = useParams("id");
   const [latLng, setLatLng] = useState({
@@ -58,6 +68,8 @@ const DetailView = (props) => {
     lng: 127.83653068080238,
   });
   const [level, setLevel] = useState(14);
+  // 정말로 삭제할 지 여부
+  const [condel, setCondel] = useState(false);
   useEffect(() => {
     // API GET
     if (Object.keys(props.data).length !== 0) {
@@ -93,8 +105,21 @@ const DetailView = (props) => {
             <UpdateButton>
               <UpdateLink to={`/update/${props.data.id}`}>수정하기</UpdateLink>
             </UpdateButton>
-            <DeleteButton onClick={deleteHandler}>삭제하기</DeleteButton>
+            <DeleteButton onClick={() => setCondel(true)}>
+              삭제하기
+            </DeleteButton>
           </ButtonDiv>
+        ) : null}
+        {condel ? (
+          <ConfirmDiv>
+            <ConfirmP>정말로 삭제하시겠습니까?</ConfirmP>
+            <ButtonDiv>
+              <UpdateButton onClick={() => setCondel(false)}>
+                취소하기
+              </UpdateButton>
+              <DeleteButton onClick={deleteHandler}>삭제하기</DeleteButton>
+            </ButtonDiv>
+          </ConfirmDiv>
         ) : null}
       </ContentDiv>
       <ContentDiv>

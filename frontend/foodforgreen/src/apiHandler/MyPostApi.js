@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export const getListApi = async () => {
+export const getMyPostApi = async (username) => {
   try {
     const response = await axios.get(
-      "https://otenm6hvba.execute-api.us-east-1.amazonaws.com/FFG//ffg_post/list"
+      "https://otenm6hvba.execute-api.us-east-1.amazonaws.com/FFG/ffg_post/mypost/" +
+        username
     );
     return response.data;
   } catch (e) {
