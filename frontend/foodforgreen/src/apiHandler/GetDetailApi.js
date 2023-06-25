@@ -8,7 +8,7 @@ export const getDetailApi = async (id) => {
     );
     return response.data;
   } catch (e) {
-    alert("게시물 불러오기에 싪패하였습니다");
+    alert("게시물 불러오기에 실패하였습니다");
     console.log(e);
   }
 };

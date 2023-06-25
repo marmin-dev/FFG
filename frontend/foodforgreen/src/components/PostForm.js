@@ -23,10 +23,20 @@ const PostForm = () => {
   });
   // 서브밋 시 일어날 이벤트
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await postApi(formData);
-    alert("게시글이 등록되었습니다");
-    window.location.href = "/";
+    if (localStorage.getItem("AUTH_TOKEN")) {
+      try {
+        e.preventDefault();
+        await postApi(formData);
+        alert("게시글이 등록되었습니다");
+        window.location.href = "/";
+      } catch {
+        console.log(e);
+        alert("게시글 등록실패");
+      }
+    } else {
+      alert("게시물 등록은 로그인 후 진행해주세요");
+      window.location.href = "/login";
+    }
   };
   // 요소 변경시 일어날 핸들러
   const handleChange = (e) => {

@@ -37,11 +37,15 @@ const UpdateForm = (props) => {
 
   // 서브밋 시 일어날 이벤트
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = { id: postId["id"], data: formData };
-    console.log(data);
-    await updateApi(data);
-    window.location.href = "/";
+    if (localStorage.getItem("AUTH_TOKEN")) {
+      e.preventDefault();
+      const data = { id: postId["id"], data: formData };
+      console.log(data);
+      if (localStorage) await updateApi(data);
+      window.location.href = "/";
+    } else {
+      alert("수정은 로그인 후 진행해주세요");
+    }
   };
   // 요소 변경시 일어날 핸들러
   const handleChange = (e) => {

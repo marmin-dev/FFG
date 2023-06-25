@@ -70,9 +70,17 @@ const DetailView = (props) => {
   }, [props.data]);
   // 삭제 메서드 작성
   const deleteHandler = async () => {
-    await deleteApi(postId);
-    alert("게시글이 삭제되었습니다");
-    window.location.href = "/";
+    if (localStorage.getItem("AUTH_TOKEN")) {
+      try {
+        await deleteApi(postId);
+        alert("게시글이 삭제되었습니다");
+        window.location.href = "/";
+      } catch (e) {
+        alert("게시글 삭제에 실패하였습니다");
+      }
+    } else {
+      alert("삭제는 로그인 후 진행해주세요");
+    }
   };
   const username = localStorage.getItem("USERNAME");
   return (
