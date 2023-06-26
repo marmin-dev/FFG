@@ -50,7 +50,7 @@ const NavBar = () => {
       </NavDiv>
       {username ? (
         <NavDiv>
-          <NaviLink to={"/mypost"}>Welcome {username}</NaviLink>
+          <NaviLink to={"/mypost"}>{username}'s Post</NaviLink>
         </NavDiv>
       ) : null}
     </NavBarDiv>

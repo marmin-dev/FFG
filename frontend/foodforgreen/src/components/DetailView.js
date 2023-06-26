@@ -4,6 +4,7 @@ import { DeleteButton, UpdateButton } from "./Buttons";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { deleteApi } from "../apiHandler/DeleteApi";
+import { deletePostCommentApi } from "../apiHandler/CommentApi";
 
 const DetailViewDiv = styled.div`
   /* border-bottom: 1px solid black; */
@@ -85,6 +86,7 @@ const DetailView = (props) => {
     if (localStorage.getItem("AUTH_TOKEN")) {
       try {
         await deleteApi(postId);
+        await deletePostCommentApi(postId["id"]);
         alert("게시글이 삭제되었습니다");
         window.location.href = "/";
       } catch (e) {
