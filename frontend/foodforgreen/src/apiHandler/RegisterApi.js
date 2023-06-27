@@ -8,5 +8,6 @@ export const registerApi = async (data) => {
     );
   } catch (e) {
     console.log(e);
+    throw e;
   }
 };
