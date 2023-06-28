@@ -95,6 +95,7 @@ const CommentItem = ({ comment, postid }) => {
               name="author"
               value={editedData.author}
               onChange={handleChange}
+              readOnly
             />
           </ListItemH3>
           <ListItemP>

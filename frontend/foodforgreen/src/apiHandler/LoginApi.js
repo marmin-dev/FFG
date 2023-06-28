@@ -6,7 +6,7 @@ export const loginApi = async (data) => {
       "https://otenm6hvba.execute-api.us-east-1.amazonaws.com/FFG/login",
       data
     );
-    console.log("데이터" + response);
+    console.log(response);
     return response.data;
   } catch (e) {
     console.error(e);

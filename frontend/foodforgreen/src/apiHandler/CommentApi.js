@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// 게시물 별 댓글 가져오기
 export const getCommentApi = async (postid) => {
   try {
     const response = await axios.get(
@@ -11,6 +12,7 @@ export const getCommentApi = async (postid) => {
     throw e;
   }
 };
+// 게시물에 댓글 등록하기
 export const postCommentApi = async (postid, data) => {
   try {
     const response = await axios.post(
@@ -24,6 +26,7 @@ export const postCommentApi = async (postid, data) => {
     throw e;
   }
 };
+// 등록된 댓글 수정하기
 export const putCommentApi = async (id, data) => {
   try {
     const response = await axios.put(
@@ -37,6 +40,7 @@ export const putCommentApi = async (id, data) => {
     throw e;
   }
 };
+// 댓글 id로 댓글 삭제하기
 export const deleteCommentApi = async (id) => {
   try {
     const response = await axios.delete(
@@ -49,6 +53,7 @@ export const deleteCommentApi = async (id) => {
     throw e;
   }
 };
+// 게시물이 삭제되면 그 게시물 id에 해당하는 댓글 지우기
 export const deletePostCommentApi = async (postid) => {
   try {
     const response = await axios.delete(

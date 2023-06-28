@@ -8,6 +8,7 @@ import "./App.css";
 import About from "./pages/About";
 import Register from "./pages/Register";
 import MyPost from "./pages/MyPost";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         {/* 내가 작성한 게시물 페이지 */}
         <Route path="/mypost" element={<MyPost />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
