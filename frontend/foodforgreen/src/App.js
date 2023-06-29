@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         {/* 내가 작성한 게시물 페이지 */}
         <Route path="/mypost" element={<MyPost />} />
+        {/* 404 페이지 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
